@@ -91,7 +91,7 @@ export const Team = () => {
           </div>
 
           {/* Team Members Circular Display */}
-          <div className="relative h-96 flex items-center justify-center">
+          <div className="relative h-[500px] flex items-center justify-center">
             {getVisibleMembers().map((member, index) => {
               const isCenter = index === 1;
               const isLeft = index === 0;
@@ -103,15 +103,15 @@ export const Team = () => {
               
               if (isCenter) {
                 positionClasses = "translate-x-0 scale-110";
-                sizeClasses = "w-80";
+                sizeClasses = "w-80 h-96";
                 zIndexClasses = "z-30";
               } else if (isLeft) {
-                positionClasses = "-translate-x-96 scale-90 opacity-70";
-                sizeClasses = "w-72";
+                positionClasses = "-translate-x-80 scale-90 opacity-70";
+                sizeClasses = "w-72 h-80";
                 zIndexClasses = "z-20";
               } else {
-                positionClasses = "translate-x-96 scale-90 opacity-70";
-                sizeClasses = "w-72";
+                positionClasses = "translate-x-80 scale-90 opacity-70";
+                sizeClasses = "w-72 h-80";
                 zIndexClasses = "z-20";
               }
 
@@ -123,7 +123,7 @@ export const Team = () => {
                   <CardContent className="p-6 text-center h-full flex flex-col justify-between">
                     {/* Profile Circle */}
                     <div className="relative mb-6">
-                      <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-r ${member.color} p-1 animate-pulse-glow`}>
+                      <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${member.color} p-1 animate-pulse-glow`}>
                         <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
                           <img 
                             src={member.image} 
@@ -139,18 +139,18 @@ export const Team = () => {
                             }}
                           />
                           <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                            <span className="text-2xl font-bold text-gray-600">
+                            <span className="text-xl font-bold text-gray-600">
                               {member.name.split(' ')[1]?.charAt(0) || 'A'}
                             </span>
                           </div>
                         </div>
                       </div>
-                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
+                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
                     </div>
 
                     {/* Name and Position */}
                     <div className="flex-grow">
-                      <h3 className="text-xl font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                      <h3 className="text-lg font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                         {member.name}
                       </h3>
                       <p className="text-sm text-amber-600 font-semibold mb-3">
@@ -176,13 +176,13 @@ export const Team = () => {
                     {/* Contact Icons - Only show on center card */}
                     {isCenter && (
                       <div className="flex justify-center space-x-3 space-x-reverse">
-                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
                           <Linkedin className="w-4 h-4 text-white" />
                         </div>
-                        <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                        <div className="w-8 h-8 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
                           <Mail className="w-4 h-4 text-white" />
                         </div>
-                        <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                        <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
                           <Phone className="w-4 h-4 text-white" />
                         </div>
                       </div>
