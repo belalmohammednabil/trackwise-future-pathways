@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles, TrendingUp, Users, Brain } from "lucide-react";
 
@@ -15,29 +16,29 @@ const services = [
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
-      {/* Enhanced Animated Background Gradient */}
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-amber-50 animate-gradient"></div>
       
-      {/* Enhanced Floating Service Bubbles Animation */}
+      {/* Floating Service Bubbles Animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {services.map((service, index) => {
           const bubbleColors = [
-            "bg-gradient-to-br from-blue-500/40 to-blue-600/50 border-blue-400/60 text-blue-800 shadow-blue-200/50",
-            "bg-gradient-to-br from-amber-500/40 to-amber-600/50 border-amber-400/60 text-amber-800 shadow-amber-200/50",
-            "bg-gradient-to-br from-emerald-500/40 to-emerald-600/50 border-emerald-400/60 text-emerald-800 shadow-emerald-200/50",
-            "bg-gradient-to-br from-purple-500/40 to-purple-600/50 border-purple-400/60 text-purple-800 shadow-purple-200/50",
-            "bg-gradient-to-br from-rose-500/40 to-rose-600/50 border-rose-400/60 text-rose-800 shadow-rose-200/50",
-            "bg-gradient-to-br from-cyan-500/40 to-cyan-600/50 border-cyan-400/60 text-cyan-800 shadow-cyan-200/50",
-            "bg-gradient-to-br from-indigo-500/40 to-indigo-600/50 border-indigo-400/60 text-indigo-800 shadow-indigo-200/50",
-            "bg-gradient-to-br from-orange-500/40 to-orange-600/50 border-orange-400/60 text-orange-800 shadow-orange-200/50",
-            "bg-gradient-to-br from-teal-500/40 to-teal-600/50 border-teal-400/60 text-teal-800 shadow-teal-200/50"
+            "bg-gradient-to-br from-blue-400/30 to-blue-500/40 border-blue-300/50 text-blue-700",
+            "bg-gradient-to-br from-amber-400/30 to-amber-500/40 border-amber-300/50 text-amber-700",
+            "bg-gradient-to-br from-emerald-400/30 to-emerald-500/40 border-emerald-300/50 text-emerald-700",
+            "bg-gradient-to-br from-purple-400/30 to-purple-500/40 border-purple-300/50 text-purple-700",
+            "bg-gradient-to-br from-rose-400/30 to-rose-500/40 border-rose-300/50 text-rose-700",
+            "bg-gradient-to-br from-cyan-400/30 to-cyan-500/40 border-cyan-300/50 text-cyan-700",
+            "bg-gradient-to-br from-indigo-400/30 to-indigo-500/40 border-indigo-300/50 text-indigo-700",
+            "bg-gradient-to-br from-orange-400/30 to-orange-500/40 border-orange-300/50 text-orange-700",
+            "bg-gradient-to-br from-teal-400/30 to-teal-500/40 border-teal-300/50 text-teal-700"
           ];
           
           return (
             <div
               key={index}
-              className={`absolute text-sm md:text-base font-bold backdrop-blur-lg px-6 py-4 rounded-full border-2 animate-float shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 ${bubbleColors[index]}`}
+              className={`absolute text-xs md:text-sm font-medium backdrop-blur-sm px-4 py-3 rounded-full border-2 animate-float shadow-lg hover:shadow-xl transition-all duration-300 ${bubbleColors[index]}`}
               style={{
                 left: `${(index * 11 + 10) % 85}%`,
                 top: `${(index * 13 + 15) % 75}%`,
@@ -50,19 +51,19 @@ export const Hero = () => {
           );
         })}
         
-        {/* Enhanced decorative bubbles */}
-        {Array.from({ length: 15 }).map((_, i) => {
+        {/* Additional floating bubbles for visual effect */}
+        {Array.from({ length: 12 }).map((_, i) => {
           const decorativeColors = [
-            "bg-gradient-to-br from-blue-400/30 to-blue-500/40 shadow-blue-200/30",
-            "bg-gradient-to-br from-amber-400/30 to-amber-500/40 shadow-amber-200/30",
-            "bg-gradient-to-br from-emerald-400/30 to-emerald-500/40 shadow-emerald-200/30",
-            "bg-gradient-to-br from-purple-400/30 to-purple-500/40 shadow-purple-200/30"
+            "bg-gradient-to-br from-blue-300/20 to-blue-400/30",
+            "bg-gradient-to-br from-amber-300/20 to-amber-400/30",
+            "bg-gradient-to-br from-emerald-300/20 to-emerald-400/30",
+            "bg-gradient-to-br from-purple-300/20 to-purple-400/30"
           ];
           
           return (
             <div
               key={`bubble-${i}`}
-              className={`absolute w-4 h-4 rounded-full animate-float shadow-lg backdrop-blur-sm ${decorativeColors[i % 4]}`}
+              className={`absolute w-3 h-3 rounded-full animate-float shadow-md ${decorativeColors[i % 4]}`}
               style={{
                 left: `${Math.random() * 95}%`,
                 top: `${Math.random() * 90}%`,
@@ -77,25 +78,25 @@ export const Hero = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Enhanced Hero Badge */}
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-100/90 to-amber-100/90 backdrop-blur-lg px-8 py-4 rounded-full text-blue-800 font-bold text-base mb-10 animate-fade-in hover:scale-105 transition-all duration-300 shadow-xl border border-blue-200/50">
-            <div className="w-3 h-3 bg-amber-500 rounded-full animate-pulse"></div>
+          {/* Hero Badge */}
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-amber-100 px-6 py-3 rounded-full text-blue-800 font-semibold text-sm mb-8 animate-fade-in hover:scale-105 transition-all duration-300">
+            <Sparkles className="w-4 h-4 text-amber-600" />
             منصة التحليل والإرشاد المهني الأولى في المنطقة العربية
-            <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+            <TrendingUp className="w-4 h-4 text-blue-600" />
           </div>
 
           {/* Main Title with Enhanced Animation */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-10 animate-slide-up relative">
-            <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-amber-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 animate-slide-up relative">
+            <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-amber-600 bg-clip-text text-transparent leading-tight">
               TrackWise
             </span>
             
-            {/* Enhanced animated underline */}
-            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-40 h-2 bg-gradient-to-r from-blue-600 to-amber-600 rounded-full animate-shimmer shadow-lg"></div>
+            {/* Animated underline */}
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-600 to-amber-600 rounded-full animate-shimmer"></div>
           </h1>
 
-          {/* Enhanced Subtitle */}
-          <p className="text-2xl md:text-3xl text-gray-700 mb-14 max-w-4xl mx-auto leading-relaxed animate-fade-in font-medium" style={{ animationDelay: '0.5s' }}>
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.5s' }}>
             نحلّل بيانات التعليم لنكتشف طاقات الطلاب ونقودهم نحو مستقبل مهني مُشرق
           </p>
 
@@ -126,9 +127,9 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-fade-in" style={{ animationDelay: '1.1s' }}>
-            <Button className="bg-gradient-to-r from-blue-600 to-amber-600 hover:from-blue-700 hover:to-amber-700 text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in" style={{ animationDelay: '1.1s' }}>
+            <Button className="bg-gradient-to-r from-blue-600 to-amber-600 hover:from-blue-700 hover:to-amber-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group relative overflow-hidden">
               <span className="relative z-10 flex items-center gap-3">
                 ابدأ تحليل شخصيتك الآن
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
@@ -136,7 +137,7 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
             </Button>
             
-            <Button variant="outline" className="border-3 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-10 py-5 rounded-full text-xl font-bold transition-all duration-300 hover:scale-105 shadow-xl">
+            <Button variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
               اكتشف خدماتنا
             </Button>
           </div>
