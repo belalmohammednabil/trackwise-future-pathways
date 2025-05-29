@@ -130,8 +130,12 @@ export const Team = () => {
                             alt={member.name}
                             className="w-full h-full object-cover rounded-full"
                             onError={(e) => {
-                              e.currentTarget.style.display = 'none';
-                              e.currentTarget.nextElementSibling.style.display = 'flex';
+                              const target = e.currentTarget as HTMLImageElement;
+                              target.style.display = 'none';
+                              const nextElement = target.nextElementSibling as HTMLElement;
+                              if (nextElement) {
+                                nextElement.style.display = 'flex';
+                              }
                             }}
                           />
                           <div className="w-full h-full bg-gray-200 flex items-center justify-center">
