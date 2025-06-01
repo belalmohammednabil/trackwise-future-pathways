@@ -3,15 +3,15 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles, TrendingUp, Users, Brain, User, FileText, Compass, Trophy, Star, Lightbulb, GraduationCap, Map, Target } from "lucide-react";
 
 const services = [
-  { name: "تحليل بصمة الطالب", icon: User },
-  { name: "التقرير الشخصي", icon: FileText },
-  { name: "الإرشاد المهني", icon: Compass },
-  { name: "رحلة الكابستون", icon: Trophy },
-  { name: "المعرض الختامي", icon: Star },
-  { name: "الأنشطة الإبداعية", icon: Lightbulb },
-  { name: "مسار TOT", icon: GraduationCap },
-  { name: "برنامج My Path", icon: Map },
-  { name: "برنامج ProMap", icon: Target }
+  { name: "تحليل بصمة الطالب", icon: User, color: "text-blue-600" },
+  { name: "التقرير الشخصي", icon: FileText, color: "text-green-600" },
+  { name: "الإرشاد المهني", icon: Compass, color: "text-purple-600" },
+  { name: "رحلة الكابستون", icon: Trophy, color: "text-yellow-600" },
+  { name: "المعرض الختامي", icon: Star, color: "text-pink-600" },
+  { name: "الأنشطة الإبداعية", icon: Lightbulb, color: "text-orange-600" },
+  { name: "مسار TOT", icon: GraduationCap, color: "text-indigo-600" },
+  { name: "برنامج My Path", icon: Map, color: "text-red-600" },
+  { name: "برنامج ProMap", icon: Target, color: "text-cyan-600" }
 ];
 
 export const Hero = () => {
@@ -27,31 +27,31 @@ export const Hero = () => {
           return (
             <div
               key={index}
-              className="absolute flex items-center gap-2 text-xs md:text-sm font-medium text-blue-700 bg-white/80 backdrop-blur-sm px-4 py-3 rounded-full border border-blue-200/50 shadow-lg animate-float"
+              className="absolute flex items-center gap-3 text-sm font-medium bg-white/90 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-200/50 shadow-lg animate-float hover:shadow-xl transition-all duration-300"
               style={{
-                left: `${10 + (index % 3) * 30}%`,
-                top: `${20 + Math.floor(index / 3) * 25}%`,
-                animationDelay: `${index * 1.2}s`,
-                animationDuration: `${8 + (index % 3)}s`,
+                left: `${8 + (index % 4) * 22}%`,
+                top: `${15 + Math.floor(index / 4) * 20}%`,
+                animationDelay: `${index * 1.5}s`,
+                animationDuration: `${10 + (index % 3)}s`,
                 zIndex: 5,
               }}
             >
-              <IconComponent className="w-4 h-4 text-amber-600" />
-              <span>{service.name}</span>
+              <IconComponent className={`w-5 h-5 ${service.color}`} />
+              <span className="text-gray-700">{service.name}</span>
             </div>
           );
         })}
         
         {/* Additional decorative bubbles */}
-        {Array.from({ length: 12 }).map((_, i) => (
+        {Array.from({ length: 15 }).map((_, i) => (
           <div
             key={`bubble-${i}`}
-            className="absolute w-3 h-3 bg-gradient-to-r from-blue-400/30 to-amber-400/30 rounded-full animate-float"
+            className="absolute w-4 h-4 bg-gradient-to-r from-blue-400/20 to-amber-400/20 rounded-full animate-float"
             style={{
-              left: `${15 + (i * 7) % 80}%`,
-              top: `${15 + (i * 11) % 70}%`,
-              animationDelay: `${i * 0.8}s`,
-              animationDuration: `${6 + (i % 4)}s`,
+              left: `${12 + (i * 6) % 76}%`,
+              top: `${20 + (i * 9) % 60}%`,
+              animationDelay: `${i * 0.7}s`,
+              animationDuration: `${8 + (i % 4)}s`,
             }}
           />
         ))}
