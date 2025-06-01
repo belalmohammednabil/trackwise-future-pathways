@@ -29,7 +29,7 @@ export const Header = () => {
                 <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-blue-600 to-amber-500 flex items-center justify-center">
                   <div className="text-white font-bold text-xl tracking-tight">
                     <span className="block text-center leading-none">T</span>
-                    <span className="block text-xs leading-none opacity-90">360</span>
+                    <span className="block text-xs leading-none opacity-90">W</span>
                   </div>
                 </div>
               </div>
@@ -40,7 +40,7 @@ export const Header = () => {
             
             <div className="text-right">
               <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-amber-600 bg-clip-text text-transparent leading-tight">
-                TrackWise.360
+                TrackWise
               </h1>
               <p className="text-xs md:text-sm text-gray-600 font-medium leading-tight">
                 نحلّل بيانات التعليم لنكتشف طاقات الطلاب

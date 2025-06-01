@@ -1,17 +1,17 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Sparkles, TrendingUp, Users, Brain } from "lucide-react";
+import { ArrowLeft, Sparkles, TrendingUp, Users, Brain, User, FileText, Compass, Trophy, Star, Lightbulb, GraduationCap, Map, Target } from "lucide-react";
 
 const services = [
-  "تحليل بصمة الطالب",
-  "التقرير الشخصي",
-  "الإرشاد المهني",
-  "رحلة الكابستون",
-  "المعرض الختامي",
-  "الأنشطة الإبداعية",
-  "مسار TOT",
-  "برنامج My Path",
-  "برنامج ProMap"
+  { name: "تحليل بصمة الطالب", icon: User },
+  { name: "التقرير الشخصي", icon: FileText },
+  { name: "الإرشاد المهني", icon: Compass },
+  { name: "رحلة الكابستون", icon: Trophy },
+  { name: "المعرض الختامي", icon: Star },
+  { name: "الأنشطة الإبداعية", icon: Lightbulb },
+  { name: "مسار TOT", icon: GraduationCap },
+  { name: "برنامج My Path", icon: Map },
+  { name: "برنامج ProMap", icon: Target }
 ];
 
 export const Hero = () => {
@@ -22,31 +22,36 @@ export const Hero = () => {
       
       {/* Floating Service Bubbles Animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="absolute text-xs md:text-sm font-medium text-blue-600/30 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-full border border-blue-200/30 animate-float"
-            style={{
-              left: `${(index * 11 + 10) % 90}%`,
-              top: `${(index * 13 + 15) % 80}%`,
-              animationDelay: `${index * 0.8}s`,
-              animationDuration: `${8 + (index % 4)}s`,
-            }}
-          >
-            {service}
-          </div>
-        ))}
+        {services.map((service, index) => {
+          const IconComponent = service.icon;
+          return (
+            <div
+              key={index}
+              className="absolute flex items-center gap-2 text-xs md:text-sm font-medium text-blue-700 bg-white/80 backdrop-blur-sm px-4 py-3 rounded-full border border-blue-200/50 shadow-lg animate-float"
+              style={{
+                left: `${10 + (index % 3) * 30}%`,
+                top: `${20 + Math.floor(index / 3) * 25}%`,
+                animationDelay: `${index * 1.2}s`,
+                animationDuration: `${8 + (index % 3)}s`,
+                zIndex: 5,
+              }}
+            >
+              <IconComponent className="w-4 h-4 text-amber-600" />
+              <span>{service.name}</span>
+            </div>
+          );
+        })}
         
-        {/* Additional floating bubbles for visual effect */}
-        {Array.from({ length: 15 }).map((_, i) => (
+        {/* Additional decorative bubbles */}
+        {Array.from({ length: 12 }).map((_, i) => (
           <div
             key={`bubble-${i}`}
-            className="absolute w-2 h-2 bg-gradient-to-r from-blue-400/20 to-amber-400/20 rounded-full animate-float"
+            className="absolute w-3 h-3 bg-gradient-to-r from-blue-400/30 to-amber-400/30 rounded-full animate-float"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${6 + Math.random() * 8}s`,
+              left: `${15 + (i * 7) % 80}%`,
+              top: `${15 + (i * 11) % 70}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${6 + (i % 4)}s`,
             }}
           />
         ))}
@@ -65,7 +70,7 @@ export const Hero = () => {
           {/* Main Title with Enhanced Animation */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 animate-slide-up relative">
             <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-amber-600 bg-clip-text text-transparent leading-tight">
-              TrackWise.360
+              TrackWise
             </span>
             
             {/* Animated underline */}

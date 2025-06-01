@@ -50,15 +50,6 @@ export const Team = () => {
     return () => clearInterval(interval);
   }, [teamMembers.length]);
 
-  const getVisibleMembers = () => {
-    const visible = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % teamMembers.length;
-      visible.push({ ...teamMembers[index], displayIndex: i });
-    }
-    return visible;
-  };
-
   return (
     <section id="team" className="py-20 px-4 bg-gradient-to-br from-blue-50/50 via-white to-amber-50/50">
       <div className="container mx-auto">
@@ -73,8 +64,8 @@ export const Team = () => {
           </p>
         </div>
 
-        {/* Circular Carousel Container */}
-        <div className="relative max-w-6xl mx-auto">
+        {/* Enhanced Team Grid Display */}
+        <div className="max-w-7xl mx-auto">
           {/* Navigation Dots */}
           <div className="flex justify-center mb-8 space-x-2 space-x-reverse">
             {teamMembers.map((_, index) => (
@@ -90,107 +81,83 @@ export const Team = () => {
             ))}
           </div>
 
-          {/* Team Members Circular Display */}
-          <div className="relative h-96 flex items-center justify-center">
-            {getVisibleMembers().map((member, index) => {
-              const isCenter = index === 1;
-              const isLeft = index === 0;
-              const isRight = index === 2;
-              
-              let positionClasses = "";
-              let sizeClasses = "";
-              let zIndexClasses = "";
-              
-              if (isCenter) {
-                positionClasses = "translate-x-0 scale-110";
-                sizeClasses = "w-80";
-                zIndexClasses = "z-30";
-              } else if (isLeft) {
-                positionClasses = "-translate-x-96 scale-90 opacity-70";
-                sizeClasses = "w-72";
-                zIndexClasses = "z-20";
-              } else {
-                positionClasses = "translate-x-96 scale-90 opacity-70";
-                sizeClasses = "w-72";
-                zIndexClasses = "z-20";
-              }
-
-              return (
-                <Card 
-                  key={`${member.name}-${currentIndex}`}
-                  className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out hover:shadow-2xl bg-white/95 backdrop-blur-sm border-0 shadow-xl ${positionClasses} ${sizeClasses} ${zIndexClasses}`}
-                >
-                  <CardContent className="p-6 text-center h-full flex flex-col justify-between">
-                    {/* Profile Circle */}
-                    <div className="relative mb-6">
-                      <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-r ${member.color} p-1 animate-pulse-glow`}>
-                        <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
-                          <img 
-                            src={member.image} 
-                            alt={member.name}
-                            className="w-full h-full object-cover rounded-full"
-                            onError={(e) => {
-                              const target = e.currentTarget as HTMLImageElement;
-                              target.style.display = 'none';
-                              const nextElement = target.nextElementSibling as HTMLElement;
-                              if (nextElement) {
-                                nextElement.style.display = 'flex';
-                              }
-                            }}
-                          />
-                          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                            <span className="text-2xl font-bold text-gray-600">
-                              {member.name.split(' ')[1]?.charAt(0) || 'A'}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
-                    </div>
-
-                    {/* Name and Position */}
-                    <div className="flex-grow">
-                      <h3 className="text-xl font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                        {member.name}
-                      </h3>
-                      <p className="text-sm text-amber-600 font-semibold mb-3">
-                        {member.position}
-                      </p>
-                      <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                        {member.description}
-                      </p>
-
-                      {/* Specialties */}
-                      <div className="mb-4">
-                        {member.specialties.map((specialty, idx) => (
-                          <span 
-                            key={idx}
-                            className="inline-block bg-gradient-to-r from-blue-100 to-amber-100 text-blue-800 text-xs px-2 py-1 rounded-full m-1"
-                          >
-                            {specialty}
+          {/* Team Members Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {teamMembers.map((member, index) => (
+              <Card 
+                key={member.name}
+                className={`transition-all duration-700 ease-in-out hover:shadow-2xl bg-white/95 backdrop-blur-sm border-0 shadow-xl hover:scale-105 ${
+                  index === currentIndex ? 'ring-2 ring-blue-500 ring-offset-2' : ''
+                }`}
+              >
+                <CardContent className="p-6 text-center h-full flex flex-col">
+                  {/* Profile Circle */}
+                  <div className="relative mb-6">
+                    <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${member.color} p-1 animate-pulse-glow`}>
+                      <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-cover rounded-full"
+                          onError={(e) => {
+                            const target = e.currentTarget as HTMLImageElement;
+                            target.style.display = 'none';
+                            const nextElement = target.nextElementSibling as HTMLElement;
+                            if (nextElement) {
+                              nextElement.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                          <span className="text-xl font-bold text-gray-600">
+                            {member.name.split(' ')[1]?.charAt(0) || 'A'}
                           </span>
-                        ))}
+                        </div>
                       </div>
                     </div>
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
+                  </div>
 
-                    {/* Contact Icons - Only show on center card */}
-                    {isCenter && (
-                      <div className="flex justify-center space-x-3 space-x-reverse">
-                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
-                          <Linkedin className="w-4 h-4 text-white" />
-                        </div>
-                        <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
-                          <Mail className="w-4 h-4 text-white" />
-                        </div>
-                        <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
-                          <Phone className="w-4 h-4 text-white" />
-                        </div>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              );
-            })}
+                  {/* Name and Position */}
+                  <div className="flex-grow">
+                    <h3 className="text-lg font-bold mb-2 text-gray-800 hover:text-blue-600 transition-colors duration-300">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-amber-600 font-semibold mb-3">
+                      {member.position}
+                    </p>
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                      {member.description}
+                    </p>
+
+                    {/* Specialties */}
+                    <div className="mb-4">
+                      {member.specialties.map((specialty, idx) => (
+                        <span 
+                          key={idx}
+                          className="inline-block bg-gradient-to-r from-blue-100 to-amber-100 text-blue-800 text-xs px-2 py-1 rounded-full m-1"
+                        >
+                          {specialty}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Contact Icons */}
+                  <div className="flex justify-center space-x-3 space-x-reverse mt-auto">
+                    <div className="w-9 h-9 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                      <Linkedin className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="w-9 h-9 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                      <Mail className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="w-9 h-9 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                      <Phone className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           {/* Auto-rotate indicator */}
