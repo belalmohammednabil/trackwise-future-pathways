@@ -82,10 +82,10 @@ export const Team = () => {
                       index === currentIndex ? 'ring-2 ring-blue-500 ring-offset-2' : ''
                     }`}
                   >
-                    <CardContent className="p-6 text-center h-full flex flex-col">
+                    <CardContent className="p-4 md:p-6 text-center h-full flex flex-col">
                       {/* Profile Circle */}
-                      <div className="relative mb-6">
-                        <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-r ${member.color} p-1 animate-pulse-glow`}>
+                      <div className="relative mb-4 md:mb-6">
+                        <div className={`w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full bg-gradient-to-r ${member.color} p-1 animate-pulse-glow`}>
                           <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
                             <img 
                               src={member.image} 
@@ -101,50 +101,52 @@ export const Team = () => {
                               }}
                             />
                             <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                              <span className="text-xl font-bold text-gray-600">
+                              <span className="text-lg md:text-xl font-bold text-gray-600">
                                 {member.name.split(' ')[1]?.charAt(0) || 'A'}
                               </span>
                             </div>
                           </div>
                         </div>
-                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
+                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3 h-3 md:w-4 md:h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
                       </div>
 
                       {/* Name and Position */}
                       <div className="flex-grow">
-                        <h3 className="text-xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition-colors duration-300">
+                        <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-gray-800 hover:text-blue-600 transition-colors duration-300 leading-tight">
                           {member.name}
                         </h3>
-                        <p className="text-sm text-amber-600 font-semibold mb-4">
+                        <p className="text-xs md:text-sm text-amber-600 font-semibold mb-3 md:mb-4 leading-tight">
                           {member.position}
                         </p>
-                        <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                        <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 leading-relaxed">
                           {member.description}
                         </p>
 
                         {/* Specialties */}
-                        <div className="mb-6">
-                          {member.specialties.map((specialty, idx) => (
-                            <span 
-                              key={idx}
-                              className="inline-block bg-gradient-to-r from-blue-100 to-amber-100 text-blue-800 text-xs px-3 py-1 rounded-full m-1"
-                            >
-                              {specialty}
-                            </span>
-                          ))}
+                        <div className="mb-4 md:mb-6">
+                          <div className="flex flex-wrap justify-center gap-1">
+                            {member.specialties.map((specialty, idx) => (
+                              <span 
+                                key={idx}
+                                className="inline-block bg-gradient-to-r from-blue-100 to-amber-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+                              >
+                                {specialty}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
 
                       {/* Contact Icons */}
-                      <div className="flex justify-center space-x-3 space-x-reverse mt-auto">
-                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
-                          <Linkedin className="w-5 h-5 text-white" />
+                      <div className="flex justify-center space-x-2 space-x-reverse mt-auto">
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                          <Linkedin className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         </div>
-                        <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
-                          <Mail className="w-5 h-5 text-white" />
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                          <Mail className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         </div>
-                        <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
-                          <Phone className="w-5 h-5 text-white" />
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
+                          <Phone className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         </div>
                       </div>
                     </CardContent>
@@ -155,14 +157,6 @@ export const Team = () => {
             <CarouselPrevious className="hidden md:flex -left-12" />
             <CarouselNext className="hidden md:flex -right-12" />
           </Carousel>
-
-          {/* Auto-rotate indicator */}
-          <div className="text-center mt-8">
-            <div className="inline-flex items-center gap-2 text-sm text-gray-500">
-              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-              يتم التبديل تلقائياً كل 8 ثواني • اسحب للتصفح
-            </div>
-          </div>
         </div>
       </div>
     </section>
