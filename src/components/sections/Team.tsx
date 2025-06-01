@@ -52,21 +52,21 @@ export const Team = () => {
   }, [teamMembers.length]);
 
   return (
-    <section id="team" className="py-20 px-4 bg-gradient-to-br from-blue-50/50 via-white to-amber-50/50">
+    <section id="team" className="py-12 md:py-20 px-4 bg-gradient-to-br from-blue-50/50 via-white to-amber-50/50">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
             <span className="bg-gradient-to-r from-blue-600 to-amber-600 bg-clip-text text-transparent">
               فريقنا المتميز
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             نخبة من الخبراء والمتخصصين في مجال علم النفس التربوي والإرشاد المهني
           </p>
         </div>
 
         {/* Enhanced Team Carousel Display */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <Carousel
             opts={{
               align: "start",
@@ -74,9 +74,9 @@ export const Team = () => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="gap-2 md:gap-4">
               {teamMembers.map((member, index) => (
-                <CarouselItem key={member.name} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={member.name} className="basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                   <Card 
                     className={`transition-all duration-700 ease-in-out hover:shadow-2xl bg-white/95 backdrop-blur-sm border-0 shadow-xl hover:scale-105 h-full ${
                       index === currentIndex ? 'ring-2 ring-blue-500 ring-offset-2' : ''
@@ -85,7 +85,7 @@ export const Team = () => {
                     <CardContent className="p-4 md:p-6 text-center h-full flex flex-col">
                       {/* Profile Circle */}
                       <div className="relative mb-4 md:mb-6">
-                        <div className={`w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full bg-gradient-to-r ${member.color} p-1 animate-pulse-glow`}>
+                        <div className={`w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mx-auto rounded-full bg-gradient-to-r ${member.color} p-1 animate-pulse-glow`}>
                           <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
                             <img 
                               src={member.image} 
@@ -101,7 +101,7 @@ export const Team = () => {
                               }}
                             />
                             <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                              <span className="text-lg md:text-xl font-bold text-gray-600">
+                              <span className="text-base md:text-lg lg:text-xl font-bold text-gray-600">
                                 {member.name.split(' ')[1]?.charAt(0) || 'A'}
                               </span>
                             </div>
@@ -111,19 +111,19 @@ export const Team = () => {
                       </div>
 
                       {/* Name and Position */}
-                      <div className="flex-grow">
-                        <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-gray-800 hover:text-blue-600 transition-colors duration-300 leading-tight">
+                      <div className="flex-grow space-y-2 md:space-y-3">
+                        <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300 leading-tight">
                           {member.name}
                         </h3>
-                        <p className="text-xs md:text-sm text-amber-600 font-semibold mb-3 md:mb-4 leading-tight">
+                        <p className="text-xs md:text-sm text-amber-600 font-semibold leading-tight">
                           {member.position}
                         </p>
-                        <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 leading-relaxed">
+                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
                           {member.description}
                         </p>
 
                         {/* Specialties */}
-                        <div className="mb-4 md:mb-6">
+                        <div className="py-2 md:py-3">
                           <div className="flex flex-wrap justify-center gap-1">
                             {member.specialties.map((specialty, idx) => (
                               <span 
@@ -138,7 +138,7 @@ export const Team = () => {
                       </div>
 
                       {/* Contact Icons */}
-                      <div className="flex justify-center space-x-2 space-x-reverse mt-auto">
+                      <div className="flex justify-center space-x-2 space-x-reverse mt-auto pt-2">
                         <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200">
                           <Linkedin className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         </div>
