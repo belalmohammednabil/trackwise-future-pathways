@@ -6,9 +6,9 @@ const services = [
   { name: "تحليل بصمة الطالب", icon: User, color: "text-blue-600" },
   { name: "التقرير الشخصي", icon: FileText, color: "text-green-600" },
   { name: "الإرشاد المهني", icon: Compass, color: "text-purple-600" },
-  { name: "رحلة الكابستون", icon: Trophy, color: "text-yellow-600" },
+  { name: "رحلة الكابستون", icon: Trophy, color: "text-orange-600" },
   { name: "المعرض الختامي", icon: Star, color: "text-pink-600" },
-  { name: "الأنشطة الإبداعية", icon: Lightbulb, color: "text-orange-600" },
+  { name: "الأنشطة الإبداعية", icon: Lightbulb, color: "text-yellow-600" },
   { name: "مسار TOT", icon: GraduationCap, color: "text-indigo-600" },
   { name: "برنامج My Path", icon: Map, color: "text-red-600" },
   { name: "برنامج ProMap", icon: Target, color: "text-cyan-600" }
@@ -20,38 +20,102 @@ export const Hero = () => {
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-amber-50 animate-gradient"></div>
       
-      {/* Floating Service Bubbles Animation */}
+      {/* Better Organized Service Bubbles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {services.map((service, index) => {
+        {/* Top row - 3 services */}
+        {services.slice(0, 3).map((service, index) => {
           const IconComponent = service.icon;
           return (
             <div
               key={index}
-              className="absolute flex items-center gap-3 text-sm font-medium bg-white/90 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-200/50 shadow-lg animate-float hover:shadow-xl transition-all duration-300"
+              className="absolute flex items-center gap-2 text-xs md:text-sm font-medium bg-white/95 backdrop-blur-sm px-3 md:px-4 py-2 md:py-3 rounded-full border border-gray-200/50 shadow-lg animate-float hover:shadow-xl transition-all duration-300"
               style={{
-                left: `${8 + (index % 4) * 22}%`,
-                top: `${15 + Math.floor(index / 4) * 20}%`,
+                left: `${10 + (index * 25)}%`,
+                top: `10%`,
                 animationDelay: `${index * 1.5}s`,
-                animationDuration: `${10 + (index % 3)}s`,
+                animationDuration: `${8 + (index % 3)}s`,
                 zIndex: 5,
               }}
             >
-              <IconComponent className={`w-5 h-5 ${service.color}`} />
-              <span className="text-gray-700">{service.name}</span>
+              <IconComponent className={`w-4 h-4 md:w-5 md:h-5 ${service.color}`} />
+              <span className="text-gray-700 hidden sm:block">{service.name}</span>
+            </div>
+          );
+        })}
+
+        {/* Middle left - 2 services */}
+        {services.slice(3, 5).map((service, index) => {
+          const IconComponent = service.icon;
+          return (
+            <div
+              key={index + 3}
+              className="absolute flex items-center gap-2 text-xs md:text-sm font-medium bg-white/95 backdrop-blur-sm px-3 md:px-4 py-2 md:py-3 rounded-full border border-gray-200/50 shadow-lg animate-float hover:shadow-xl transition-all duration-300"
+              style={{
+                left: `${5 + (index * 30)}%`,
+                top: `45%`,
+                animationDelay: `${(index + 3) * 1.5}s`,
+                animationDuration: `${8 + ((index + 3) % 3)}s`,
+                zIndex: 5,
+              }}
+            >
+              <IconComponent className={`w-4 h-4 md:w-5 md:h-5 ${service.color}`} />
+              <span className="text-gray-700 hidden sm:block">{service.name}</span>
+            </div>
+          );
+        })}
+
+        {/* Middle right - 2 services */}
+        {services.slice(5, 7).map((service, index) => {
+          const IconComponent = service.icon;
+          return (
+            <div
+              key={index + 5}
+              className="absolute flex items-center gap-2 text-xs md:text-sm font-medium bg-white/95 backdrop-blur-sm px-3 md:px-4 py-2 md:py-3 rounded-full border border-gray-200/50 shadow-lg animate-float hover:shadow-xl transition-all duration-300"
+              style={{
+                right: `${5 + (index * 30)}%`,
+                top: `35%`,
+                animationDelay: `${(index + 5) * 1.5}s`,
+                animationDuration: `${8 + ((index + 5) % 3)}s`,
+                zIndex: 5,
+              }}
+            >
+              <IconComponent className={`w-4 h-4 md:w-5 md:h-5 ${service.color}`} />
+              <span className="text-gray-700 hidden sm:block">{service.name}</span>
+            </div>
+          );
+        })}
+
+        {/* Bottom row - 2 services */}
+        {services.slice(7, 9).map((service, index) => {
+          const IconComponent = service.icon;
+          return (
+            <div
+              key={index + 7}
+              className="absolute flex items-center gap-2 text-xs md:text-sm font-medium bg-white/95 backdrop-blur-sm px-3 md:px-4 py-2 md:py-3 rounded-full border border-gray-200/50 shadow-lg animate-float hover:shadow-xl transition-all duration-300"
+              style={{
+                left: `${20 + (index * 35)}%`,
+                top: `75%`,
+                animationDelay: `${(index + 7) * 1.5}s`,
+                animationDuration: `${8 + ((index + 7) % 3)}s`,
+                zIndex: 5,
+              }}
+            >
+              <IconComponent className={`w-4 h-4 md:w-5 md:h-5 ${service.color}`} />
+              <span className="text-gray-700 hidden sm:block">{service.name}</span>
             </div>
           );
         })}
         
-        {/* Additional decorative bubbles */}
-        {Array.from({ length: 15 }).map((_, i) => (
+        {/* Smaller decorative bubbles in gaps */}
+        {Array.from({ length: 8 }).map((_, i) => (
           <div
             key={`bubble-${i}`}
-            className="absolute w-4 h-4 bg-gradient-to-r from-blue-400/20 to-amber-400/20 rounded-full animate-float"
+            className="absolute w-2 h-2 md:w-3 md:h-3 bg-gradient-to-r from-blue-400/30 to-amber-400/30 rounded-full animate-float"
             style={{
-              left: `${12 + (i * 6) % 76}%`,
-              top: `${20 + (i * 9) % 60}%`,
-              animationDelay: `${i * 0.7}s`,
-              animationDuration: `${8 + (i % 4)}s`,
+              left: `${15 + (i * 10) % 70}%`,
+              top: `${25 + (i * 8) % 40}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${6 + (i % 3)}s`,
             }}
           />
         ))}
