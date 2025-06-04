@@ -1,7 +1,8 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -87,7 +88,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Cairo', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-feature-settings: 'kern' 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -99,8 +100,18 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Cairo', 'Poppins', sans-serif;
     font-weight: 700;
+  }
+
+  /* Arabic text styling */
+  [dir="rtl"] {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  /* English text styling */
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
   }
 }
 
@@ -159,6 +170,31 @@
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
+
+  /* Enhanced fade-in animations with stagger */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-fade-in-up-delay-1 {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-fade-in-up-delay-2 {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-fade-in-up-delay-3 {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
 }
 
 @keyframes float {
@@ -173,6 +209,13 @@
   }
   75% {
     transform: translateY(-30px) translateX(15px) rotate(7deg);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -213,10 +256,6 @@
 }
 
 /* RTL Improvements */
-[dir="rtl"] {
-  font-family: 'Cairo', sans-serif;
-}
-
 [dir="rtl"] .space-x-reverse > * + * {
   margin-left: 0;
   margin-right: var(--tw-space-x-reverse);
@@ -260,122 +299,4 @@ button, a, input, textarea, select, .card {
 .hover-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Particle animation background */
-.particles {
-  position: relative;
-  overflow: hidden;
-}
-
-.particles::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(2px 2px at 20px 30px, rgba(59, 130, 246, 0.3), transparent),
-              radial-gradient(2px 2px at 40px 70px, rgba(251, 191, 36, 0.3), transparent),
-              radial-gradient(1px 1px at 90px 40px, rgba(59, 130, 246, 0.4), transparent),
-              radial-gradient(1px 1px at 130px 80px, rgba(251, 191, 36, 0.4), transparent);
-  background-size: 200px 100px;
-  animation: particles 20s linear infinite;
-}
-
-@keyframes particles {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-200px);
-  }
-}
-
-/* Enhanced Bubble Animation for Services */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px) rotate(5deg);
-  }
-  50% {
-    transform: translateY(-10px) translateX(-5px) rotate(-3deg);
-  }
-  75% {
-    transform: translateY(-30px) translateX(15px) rotate(7deg);
-  }
-}
-
-/* Carousel transition effects */
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%) scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%) scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromCenter {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Enhanced pulse glow for team cards */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(251, 191, 36, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(251, 191, 36, 0.4);
-  }
-}
-
-/* Smooth rotation for service bubbles */
-@keyframes rotate-bubble {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Service bubbles enhanced styles */
-.service-bubble {
-  animation: float 8s ease-in-out infinite, rotate-bubble 20s linear infinite;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(59, 130, 246, 0.1));
-  border: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-/* Team card hover effects */
-.team-card {
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.team-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
 }
