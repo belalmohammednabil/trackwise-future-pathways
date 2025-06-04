@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Header = () => {
@@ -19,37 +19,32 @@ export const Header = () => {
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-lg z-50 shadow-lg border-b border-blue-100/50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-4 space-x-reverse">
-            {/* Professional Logo */}
+          <div className="flex items-center space-x-3 space-x-reverse">
+            {/* Updated Logo with the uploaded image */}
             <div className="relative">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-600 via-blue-700 to-amber-500 rounded-xl shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-amber-500 rounded-xl blur-md opacity-50"></div>
-                <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-blue-600 to-amber-500 flex items-center justify-center">
-                  <div className="text-white font-bold text-xl tracking-tight">
-                    <span className="block text-center leading-none">T</span>
-                    <span className="block text-xs leading-none opacity-90">W</span>
-                  </div>
-                </div>
+              <div className="w-12 h-12 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-1">
+                <img 
+                  src="/lovable-uploads/2f9c3c01-cf18-4b54-907a-9f18e9e19d9c.png" 
+                  alt="TrackWise Logo"
+                  className="w-full h-full object-contain rounded-lg"
+                />
               </div>
-              {/* Floating dots animation */}
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full animate-ping"></div>
-              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
             </div>
             
             <div className="text-right">
-              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-amber-600 bg-clip-text text-transparent leading-tight">
+              <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-amber-600 bg-clip-text text-transparent leading-tight">
                 TrackWise
               </h1>
-              <p className="text-xs md:text-sm text-gray-600 font-medium leading-tight">
-                نحلّل بيانات التعليم لنكتشف طاقات الطلاب
+              <p className="text-xs text-gray-600 font-medium leading-tight">
+                Social Innovators
               </p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 space-x-reverse">
+          <nav className="hidden lg:flex items-center space-x-6 space-x-reverse">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -62,11 +57,11 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* Enhanced CTA Button with better contrast */}
           <div className="hidden lg:block">
-            <Button className="relative bg-gradient-to-r from-blue-600 to-amber-600 hover:from-blue-700 hover:to-amber-700 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden group">
+            <Button className="relative bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white px-6 py-2 rounded-full font-semibold text-sm shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden group border border-blue-600">
               <span className="relative z-10">ابدأ رحلتك</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-700 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
             </Button>
           </div>
 
@@ -94,7 +89,7 @@ export const Header = () => {
                 </a>
               ))}
               <div className="px-4 pt-2">
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-amber-600 hover:from-blue-700 hover:to-amber-700 text-white py-3 rounded-full font-semibold shadow-lg">
+                <Button className="w-full bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white py-3 rounded-full font-semibold shadow-lg border border-blue-600">
                   ابدأ رحلتك
                 </Button>
               </div>
