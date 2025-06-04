@@ -2,11 +2,12 @@
 import { BookOpen, Brain, Users, Award, Palette, Trophy, GraduationCap, Briefcase, Target, Building } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Services = () => {
   const [selectedUserType, setSelectedUserType] = useState<'individual' | 'institution' | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [showServices, setShowServices] = useState(false);
 
   const individualServices = [
     {
@@ -99,11 +100,32 @@ export const Services = () => {
     if (selectedUserType === type) return;
     
     setIsAnimating(true);
+    setShowServices(false);
+    
     setTimeout(() => {
       setSelectedUserType(type);
       setIsAnimating(false);
+      
+      // Add smooth scroll to services with delay
+      setTimeout(() => {
+        setShowServices(true);
+        const servicesElement = document.getElementById('services-display');
+        if (servicesElement) {
+          servicesElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+        }
+      }, 200);
     }, 300);
   };
+
+  useEffect(() => {
+    if (selectedUserType && !isAnimating) {
+      setShowServices(true);
+    }
+  }, [selectedUserType, isAnimating]);
 
   const displayedServices = selectedUserType === 'institution' ? institutionServices : individualServices;
 
@@ -206,17 +228,32 @@ export const Services = () => {
           </div>
         </div>
 
-        {/* Services Display */}
+        {/* Services Display with Enhanced Animation */}
         {selectedUserType && (
-          <div className={`transition-all duration-700 transform ${
-            isAnimating ? 'opacity-0 translate-y-8 scale-95' : 'opacity-100 translate-y-0 scale-100'
-          }`}>
+          <div 
+            id="services-display"
+            className={`transition-all duration-1000 ease-out transform ${
+              showServices 
+                ? 'opacity-100 translate-y-0 scale-100' 
+                : 'opacity-0 translate-y-16 scale-95'
+            }`}
+            style={{ 
+              transitionDelay: showServices ? '0ms' : '0ms',
+            }}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {displayedServices.map((service, index) => (
                 <Card 
                   key={`${selectedUserType}-${index}`}
-                  className={`group relative overflow-hidden transition-all duration-700 transform hover:scale-105 bg-white/95 backdrop-blur-sm ${service.borderColor} border-2 shadow-lg hover:shadow-xl animate-fade-in cursor-pointer`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`group relative overflow-hidden transition-all duration-700 transform hover:scale-105 bg-white/95 backdrop-blur-sm ${service.borderColor} border-2 shadow-lg hover:shadow-xl cursor-pointer ${
+                    showServices ? 'animate-fade-in' : ''
+                  }`}
+                  style={{ 
+                    animationDelay: showServices ? `${index * 150}ms` : '0ms',
+                    transform: showServices ? 'translateY(0)' : 'translateY(30px)',
+                    opacity: showServices ? 1 : 0,
+                    transition: `all 0.6s ease-out ${index * 150}ms`
+                  }}
                 >
                   {/* Gradient Background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-50 group-hover:opacity-70 transition-opacity duration-500`}></div>
@@ -261,8 +298,8 @@ export const Services = () => {
         )}
 
         {/* Call to Action */}
-        {selectedUserType && (
-          <div className="text-center mt-16 animate-fade-in">
+        {selectedUserType && showServices && (
+          <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '1000ms' }}>
             <Button className="bg-gradient-to-r from-blue-600 to-amber-600 hover:from-blue-700 hover:to-amber-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-pointer flex items-center gap-3 mx-auto">
               <span>ابدأ رحلة اكتشاف مستقبلك</span>
               <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">

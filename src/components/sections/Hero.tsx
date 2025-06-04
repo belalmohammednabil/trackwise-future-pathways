@@ -4,13 +4,10 @@ import {
   ArrowLeft,
   Sparkles,
   TrendingUp,
-  Users,
-  Brain,
   User,
   FileText,
   Compass,
   Trophy,
-  Star,
   Lightbulb,
   GraduationCap,
   Map,
@@ -89,7 +86,7 @@ export const Hero = () => {
             <TrendingUp className="w-4 h-4 text-blue-600" />
           </div>
 
-          {/* Title - Enhanced Font */}
+          {/* Title */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 animate-slide-up relative tracking-tight">
             <span className="block bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800 bg-clip-text text-transparent leading-tight font-serif">
               TrackWise
@@ -104,33 +101,6 @@ export const Hero = () => {
           >
             نحلّل بيانات التعليم لنكتشف طاقات الطلاب ونقودهم نحو مستقبل مهني مُشرق
           </p>
-
-          {/* Enhanced Stats - More Professional Colors */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-scale-in" style={{ animationDelay: '0.8s' }}>
-            <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-slate-100">
-              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-slate-700 mb-2">+5000</h3>
-              <p className="text-gray-600 font-medium">طالب تم توجيههم</p>
-            </div>
-            
-            <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-slate-100">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Brain className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-blue-600 mb-2">95%</h3>
-              <p className="text-gray-600 font-medium">نسبة دقة التحليل</p>
-            </div>
-            
-            <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-slate-100">
-              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-amber-600 mb-2">9</h3>
-              <p className="text-gray-600 font-medium">خدمات متكاملة</p>
-            </div>
-          </div>
 
           {/* CTA Buttons */}
           <div
