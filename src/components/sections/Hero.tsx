@@ -27,7 +27,7 @@ const services = [
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-amber-50 animate-gradient"></div>
 
@@ -80,55 +80,61 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-6xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-amber-100 px-6 py-3 rounded-full text-blue-800 font-semibold text-sm mb-8 animate-fade-in-up hover:scale-105 transition-all duration-300">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-amber-100 px-6 py-3 rounded-full text-blue-800 font-semibold text-sm mb-8 animate-fade-in hover:scale-105 transition-all duration-300">
             <Sparkles className="w-4 h-4 text-amber-600" />
             منصة التحليل والإرشاد المهني الأولى في المنطقة العربية
             <TrendingUp className="w-4 h-4 text-blue-600" />
           </div>
 
           {/* Title */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 animate-fade-in-up-delay-1 relative tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 animate-slide-up relative tracking-tight">
             <span className="block bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800 bg-clip-text text-transparent leading-tight font-serif">
               TrackWise
             </span>
             <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-600 to-amber-600 rounded-full animate-shimmer"></div>
           </h1>
 
-          {/* Subtitle with improved spacing and size */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up-delay-2 font-medium">
+          {/* Subtitle */}
+          <p
+            className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in"
+            style={{ animationDelay: "0.5s" }}
+          >
             نحلّل بيانات التعليم لنكتشف طاقات الطلاب ونقودهم نحو مستقبل مهني مُشرق
           </p>
 
-          {/* CTA Buttons with enhanced contrast */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up-delay-3">
-            <Button className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white px-10 py-5 rounded-full text-lg font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group relative overflow-hidden border-2 border-blue-600 glow-blue">
+          {/* CTA Buttons */}
+          <div
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in"
+            style={{ animationDelay: "1.1s" }}
+          >
+            <Button className="bg-gradient-to-r from-slate-700 to-blue-600 hover:from-slate-800 hover:to-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group relative overflow-hidden">
               <span className="relative z-10 flex items-center gap-3">
                 ابدأ تحليل شخصيتك الآن
-                <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" />
+                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-700 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-slate-700 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
             </Button>
 
             <Button
               variant="outline"
-              className="border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white px-10 py-5 rounded-full text-lg font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="border-2 border-slate-600 text-slate-600 hover:bg-slate-600 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105"
             >
               اكتشف خدماتنا
             </Button>
           </div>
 
           {/* Trust Logos */}
-          <div className="mt-20 animate-fade-in-up-delay-3">
-            <p className="text-gray-500 text-base mb-8 font-medium">موثوق من قبل أفضل المؤسسات التعليمية</p>
+          <div className="mt-16 animate-fade-in" style={{ animationDelay: "1.4s" }}>
+            <p className="text-gray-500 text-sm mb-6">موثوق من قبل أفضل المؤسسات التعليمية</p>
             <div className="flex justify-center items-center gap-8 opacity-60">
-              <div className="w-28 h-14 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300">
-                <span className="text-sm font-bold text-gray-600">مدرسة</span>
+              <div className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                <span className="text-xs font-bold text-gray-500">مدرسة</span>
               </div>
-              <div className="w-28 h-14 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300">
-                <span className="text-sm font-bold text-gray-600">جامعة</span>
+              <div className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                <span className="text-xs font-bold text-gray-500">جامعة</span>
               </div>
-              <div className="w-28 h-14 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300">
-                <span className="text-sm font-bold text-gray-600">معهد</span>
+              <div className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                <span className="text-xs font-bold text-gray-500">معهد</span>
               </div>
             </div>
           </div>
@@ -137,8 +143,8 @@ export const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-gentle">
-        <div className="w-6 h-10 border-2 border-blue-700 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-blue-700 rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-slate-600 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
