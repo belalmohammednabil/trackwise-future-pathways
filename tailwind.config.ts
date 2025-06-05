@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -22,6 +21,7 @@ export default {
 			fontFamily: {
 				'cairo': ['Cairo', 'sans-serif'],
 				'poppins': ['Poppins', 'sans-serif'],
+				'legio': ['Orbitron', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

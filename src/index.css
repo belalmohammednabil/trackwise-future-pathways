@@ -1,8 +1,8 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&display=swap');
 
 @layer base {
   :root {
@@ -112,6 +112,13 @@
   /* English text styling */
   .font-poppins {
     font-family: 'Poppins', sans-serif;
+  }
+
+  /* Legio-like font styling using Orbitron as alternative */
+  .font-legio {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    letter-spacing: 0.05em;
   }
 }
 
