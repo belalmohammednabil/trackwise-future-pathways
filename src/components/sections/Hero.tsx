@@ -86,9 +86,9 @@ export const Hero = () => {
             <TrendingUp className="w-4 h-4 text-blue-600" />
           </div>
 
-          {/* Title */}
+          {/* Title with modern sans-serif font */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 animate-fade-in-up-delay-1 relative tracking-tight">
-            <span className="block bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800 bg-clip-text text-transparent leading-tight font-serif">
+            <span className="block bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800 bg-clip-text text-transparent leading-tight font-sans font-black">
               TrackWise
             </span>
             <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-600 to-amber-600 rounded-full animate-shimmer"></div>
