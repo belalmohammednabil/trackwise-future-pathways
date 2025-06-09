@@ -7,15 +7,17 @@ import { Contact } from "@/components/sections/Contact";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Programs } from "@/components/sections/Programs";
+import { FAQ } from "@/components/sections/FAQ";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50" dir="rtl">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100/80 via-blue-50/60 to-blue-200/70" dir="rtl">
       <Header />
       <Hero />
       <Services />
       <Programs />
       <About />
+      <FAQ />
       <Team />
       <Contact />
       <Footer />
