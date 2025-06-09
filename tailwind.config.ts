@@ -21,7 +21,7 @@ export default {
 			fontFamily: {
 				'cairo': ['Cairo', 'sans-serif'],
 				'poppins': ['Poppins', 'sans-serif'],
-				'legio': ['Orbitron', 'monospace'],
+				'fredoka': ['Fredoka', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -66,7 +66,9 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'royal-blue': 'hsl(var(--royal-blue))',
+				'transparent-blue': 'hsl(var(--transparent-blue))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
