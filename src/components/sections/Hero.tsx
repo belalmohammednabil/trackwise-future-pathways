@@ -60,11 +60,11 @@ export const Hero = () => {
           );
         })}
 
-        {/* Small decorative bubbles */}
+        {/* Small decorative bubbles - تغيير اللون إلى أزرق ملكي */}
         {Array.from({ length: 15 }).map((_, i) => (
           <div
             key={`bubble-${i}`}
-            className="absolute w-4 h-4 bg-gradient-to-r from-blue-400/20 to-blue-600/20 rounded-full animate-float"
+            className="absolute w-4 h-4 bg-gradient-to-r from-blue-800/20 to-blue-900/20 rounded-full animate-float"
             style={{
               left: `${12 + (i * 6) % 76}%`,
               top: `${30 + (i * 9) % 50}%`,
@@ -78,19 +78,19 @@ export const Hero = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-6xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-blue-800/20 px-6 py-3 rounded-full text-blue-900 font-semibold text-sm mb-8 animate-fade-in-up hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-blue-300/30">
-            <Sparkles className="w-4 h-4 text-blue-700" />
+          {/* Badge - تغيير اللون إلى أزرق ملكي */}
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-800/20 to-blue-900/20 px-6 py-3 rounded-full text-blue-900 font-semibold text-sm mb-8 animate-fade-in-up hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-blue-800/30">
+            <Sparkles className="w-4 h-4 text-blue-800" />
             منصة التحليل والإرشاد المهني الأولى في المنطقة العربية
-            <TrendingUp className="w-4 h-4 text-blue-700" />
+            <TrendingUp className="w-4 h-4 text-blue-800" />
           </div>
 
           {/* Title with Fredoka font and white color with royal blue shadow */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 animate-fade-in-up-delay-1 relative tracking-tight">
-            <span className="block text-white font-fredoka leading-tight drop-shadow-[4px_4px_8px_rgba(29,78,216,0.8)]">
+            <span className="block text-white font-fredoka leading-tight drop-shadow-[4px_4px_8px_rgba(30,58,138,0.8)]">
               TrackWise
             </span>
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-700 to-blue-600 rounded-full animate-shimmer"></div>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-800 to-blue-900 rounded-full"></div>
           </h1>
 
           {/* Subtitle */}
