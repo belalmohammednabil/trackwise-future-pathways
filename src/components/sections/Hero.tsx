@@ -29,7 +29,7 @@ export const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background with transparent blue */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/80 via-blue-50/60 to-blue-200/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 via-blue-300/20 to-blue-500/40"></div>
 
       {/* Floating Service Bubbles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -87,7 +87,9 @@ export const Hero = () => {
 
           {/* Title with Fredoka font and white color with royal blue shadow */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 animate-fade-in-up-delay-1 relative tracking-tight">
-            <span className="block text-white font-fredoka leading-tight drop-shadow-[4px_4px_8px_rgba(37,99,235,0.8)]">
+            <span className="block text-white font-fredoka leading-tight" style={{ 
+              textShadow: '4px 4px 8px hsl(220, 100%, 25%), 2px 2px 4px hsl(220, 100%, 15%), 6px 6px 12px hsl(220, 100%, 35%)' 
+            }}>
               TrackWise
             </span>
             <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-royal-blue to-blue-600 rounded-full animate-shimmer"></div>
@@ -98,7 +100,7 @@ export const Hero = () => {
             نحلّل بيانات التعليم لنكتشف طاقات الطلاب ونقودهم نحو مستقبل مهني مُشرق
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons with proper contrast */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up-delay-3">
             <Button className="bg-gradient-to-r from-royal-blue to-blue-700 hover:from-blue-800 hover:to-blue-900 text-white px-10 py-5 rounded-full text-lg font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group relative overflow-hidden border-2 border-royal-blue">
               <span className="relative z-10 flex items-center gap-3">
@@ -110,7 +112,7 @@ export const Hero = () => {
 
             <Button
               variant="outline"
-              className="border-2 border-royal-blue text-royal-blue hover:bg-royal-blue hover:text-white px-10 py-5 rounded-full text-lg font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-white/90 backdrop-blur-sm"
+              className="border-2 border-white text-white hover:bg-white hover:text-royal-blue px-10 py-5 rounded-full text-lg font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl bg-transparent backdrop-blur-sm"
             >
               اكتشف خدماتنا
             </Button>

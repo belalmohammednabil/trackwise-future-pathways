@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { ChevronDown, ChevronUp, HelpCircle, Sparkles } from "lucide-react";
 
 const faqData = [
   {
@@ -37,57 +37,78 @@ export const FAQ = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-r from-blue-50/80 to-blue-100/60 backdrop-blur-sm">
-      <div className="container mx-auto max-w-4xl">
+    <section className="py-20 px-4 bg-gradient-to-br from-blue-50/50 via-white/30 to-blue-100/40 backdrop-blur-sm relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-royal-blue/10"></div>
+      <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-royal-blue/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-tr from-royal-blue/10 to-blue-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+      <div className="container mx-auto max-w-5xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-blue-100/80 px-4 py-2 rounded-full text-royal-blue font-medium text-sm mb-6">
-            <HelpCircle className="w-4 h-4" />
+        <div className="text-center mb-20 animate-fade-in">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-100/90 to-royal-blue/20 px-6 py-3 rounded-full text-royal-blue font-semibold text-sm mb-8 shadow-lg backdrop-blur-sm border border-royal-blue/20">
+            <HelpCircle className="w-5 h-5" />
             الأسئلة الشائعة
+            <Sparkles className="w-4 h-4" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-royal-blue to-blue-600 bg-clip-text text-transparent">
-              أسئلة يطرحها الطلاب كثيراً
+          <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-royal-blue via-blue-700 to-blue-600 bg-clip-text text-transparent">
+              أسئلة يطرحها
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 to-royal-blue bg-clip-text text-transparent">
+              الطلاب كثيراً
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            إجابات شاملة على أهم الأسئلة حول خدماتنا وبرامج التحليل والإرشاد المهني
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            إجابات شاملة وواضحة على أهم الأسئلة حول خدماتنا وبرامج التحليل والإرشاد المهني المتطورة
           </p>
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-200/50 overflow-hidden animate-fade-in-up transition-all duration-300 hover:shadow-xl"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-blue-200/30 overflow-hidden animate-fade-in-up transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] hover:bg-white/80"
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full p-6 text-right flex items-center justify-between hover:bg-blue-50/50 transition-all duration-300 group"
+                className="w-full p-8 text-right flex items-center justify-between hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-royal-blue/5 transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="flex items-center gap-3">
-                  {openIndex === index ? (
-                    <ChevronUp className="w-5 h-5 text-royal-blue transition-transform duration-300" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-royal-blue transition-transform duration-300" />
-                  )}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-blue-50/30 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                
+                <div className="flex items-center gap-4 relative z-10">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    openIndex === index 
+                      ? 'bg-gradient-to-r from-royal-blue to-blue-600 shadow-lg' 
+                      : 'bg-gradient-to-r from-blue-100 to-blue-200 group-hover:from-royal-blue/20 group-hover:to-blue-600/20'
+                  }`}>
+                    {openIndex === index ? (
+                      <ChevronUp className="w-6 h-6 text-white transition-transform duration-300" />
+                    ) : (
+                      <ChevronDown className="w-6 h-6 text-royal-blue transition-transform duration-300 group-hover:text-royal-blue/80" />
+                    )}
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 group-hover:text-royal-blue transition-colors duration-300">
+                
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-royal-blue transition-colors duration-300 relative z-10 text-right flex-1 mr-4">
                   {faq.question}
                 </h3>
               </button>
               
               <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                className={`overflow-hidden transition-all duration-700 ease-in-out ${
                   openIndex === index 
                     ? 'max-h-96 opacity-100' 
                     : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="p-6 pt-0 text-gray-600 leading-relaxed bg-gradient-to-r from-blue-50/30 to-transparent">
-                  {faq.answer}
+                <div className="p-8 pt-0 text-gray-700 leading-relaxed text-lg bg-gradient-to-br from-blue-50/30 via-white/20 to-royal-blue/5 backdrop-blur-sm border-t border-blue-200/30">
+                  <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-inner border border-blue-100/50">
+                    {faq.answer}
+                  </div>
                 </div>
               </div>
             </div>
@@ -95,11 +116,14 @@ export const FAQ = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <p className="text-gray-600 mb-6">لديك سؤال آخر؟ نحن هنا لمساعدتك</p>
-          <button className="bg-gradient-to-r from-royal-blue to-blue-700 hover:from-blue-800 hover:to-blue-900 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-            تواصل معنا الآن
-          </button>
+        <div className="text-center mt-16 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+          <div className="bg-gradient-to-r from-blue-50/80 to-royal-blue/10 backdrop-blur-sm rounded-3xl p-8 border border-blue-200/30 shadow-xl">
+            <p className="text-gray-600 mb-6 text-lg">لديك سؤال آخر؟ فريقنا المتخصص هنا لمساعدتك</p>
+            <button className="bg-gradient-to-r from-royal-blue to-blue-700 hover:from-blue-800 hover:to-blue-900 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl relative overflow-hidden group">
+              <span className="relative z-10">تواصل معنا الآن</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-900 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+            </button>
+          </div>
         </div>
       </div>
     </section>
